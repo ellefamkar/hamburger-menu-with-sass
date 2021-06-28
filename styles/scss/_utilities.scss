@@ -1,0 +1,49 @@
+//set text color based on background 
+
+@function set-text-color($color) {
+    //check the lightness
+    @if(lightness($color) > 70){
+        @return #293241;
+    }
+    @else {
+        @return #98C1D9;
+    }
+}
+
+
+// Hamburger menu
+
+@for $item from 1 through 3 {
+    .main-header__hamburger-menu-#{$item}{
+        display: inline-block;
+        height: 4px + $item;
+        background-color: $primary-color;
+        width:15px * $item;
+    }
+}
+
+
+//margin and padding classes
+
+$spaceamounts: (1,2,3,4,5);
+@each $space in $spaceamounts {
+    .m-#{$space} {
+        margin: #{$space}rem;
+    }
+    .my-#{$space} {
+        margin: #{$space}rem 0;
+    }
+    .mx-#{$space} {
+        margin: 0 #{$space}rem;
+    }
+
+    .p-#{$space} {
+        padding: #{$space}rem;
+    }
+    .py-#{$space} {
+        padding: #{$space}rem 0;
+    }
+    .px-#{$space} {
+        padding: 0 #{$space}rem;
+    }
+}

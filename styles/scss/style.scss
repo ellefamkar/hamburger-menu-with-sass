@@ -1,0 +1,167 @@
+@import 'variables';
+@import 'mixins';
+@import 'utilities';
+@import 'query';
+
+* {
+    //universal selector read comp from mixins
+    @include universal;
+}
+
+body {
+    background-color: $primary-color;
+    // background: linear-gradient(#293241, #EE6C4D);
+}
+
+.main-header {
+    // background-color: $secondary-color;
+    @include set-background($secondary-color);
+    @include display-flex-space;
+    height: 100px;
+    padding: 1rem 2rem;
+
+    img {
+        width: 70px;
+    }
+    
+    &__nav--items {
+        display: flex;
+        list-style-type: none;
+
+            li {
+                margin: 0 1rem;
+            }
+
+            a {
+                text-decoration: none;
+                // color: set-text-color($primary-color);
+                @include textStyle(1.3rem, bold, $primary-color, cursive);
+                transition: all 0.2s ease-in;
+
+                &:hover {
+                    color: $dark-blue;
+                }
+            }
+        }
+ 
+    &__hamburger-menu {
+        display: none;
+        flex-direction: column;
+        direction: rtl;
+        
+        span {
+            margin: 4px 0;
+            direction: rtl;
+            border-radius: 5px;
+        }
+    }
+        
+
+}
+
+.main-body {
+    padding: 8rem 3rem;
+    @include display-flex;
+
+    &__main {
+        width: 60%;
+        @include NeuStyle;
+        @include bodyStyle;
+        text-align: center;
+        padding: 2rem 0;
+        margin-right: 1rem;
+
+        img {
+            width: 50%;
+        }
+    }
+}
+
+.main-body__aside {
+    width: 40%;
+    background: url('../../images/Asset\ 1form.png') center/contain no-repeat;
+    @include bodyStyle;
+    padding: 0;
+
+        &--form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .image {
+                background: url('../../images/logo.png') center/cover no-repeat;
+                width: 130px;
+                height: 130px;
+                background-repeat: no-repeat;
+                border-radius: 50%;
+                margin: 1rem auto;
+                box-shadow: 0px 0px 2px #5f5f5f, 
+                0px 0px 0px 5px #ecf0f3, 
+                8px 8px 15px #afaaa7, 
+                -8px -8px 15px #ffffff;
+            }
+
+            .title {
+                @include textStyle(1.7rem, bold, $primary-color, cursive);
+                text-align: center;
+                margin: 1rem 0 2rem 0;
+            }
+
+            .fields {
+                width: 100%;
+                padding: 2rem 0.5 rem 0.5rem 0.5rem;
+
+                input {
+                    border: none;
+                    background: none;
+                    outline: none;
+                    padding-left: 0.5rem;
+                    // appearance: none;
+
+                    &::placeholder {
+                        @include textStyle(0.8rem, bold, $light-blue, cursive);
+                    }
+
+                    &:-internal-autofill-selected {
+                        background-color: transparent !important; }
+                }
+                
+                .username, .password {
+                    display: flex;
+                    width: 100%;
+                    border-radius: 50px;
+                    margin: 1rem auto;
+                    background: #EE6C4D;
+                    box-shadow: inset -22px -22px 44px #c85b41,
+                                inset 22px 22px 44px #ff7d59;
+                }
+
+                .svg-icon {
+                    height: 25px;
+                    margin: 0 0.1rem 0rem 1.2rem;
+                    color: $light-blue;
+                }
+            }
+
+            .button {
+                @include buttonEffect;
+            }
+
+            .links{
+                padding-top: 0.3rem;
+                text-align: center;
+                @include textStyle(1rem, 300, $dark-blue, cursive);
+
+                a{
+                    color: $dark-blue;
+                }
+            }
+        }
+
+
+}
+
+
+
+@import 'query';

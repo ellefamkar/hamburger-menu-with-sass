@@ -1,0 +1,25 @@
+
+@include query (M) {
+    .main-header__hamburger-menu {
+        display: flex;
+    }
+    .main-header__nav {
+        display: none;
+    }
+    
+    .main-body {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+        &__main {
+            width: 100%;
+            margin-top: 4rem;
+        }
+
+        &__aside {
+            width: 100%;
+        }
+    }
+}
